@@ -56,7 +56,7 @@ classdef estimator
             U_b = L(2:end,obj.sig_size(1)-obj.source_num+1:end);
             Psi = (U_b'*U_b)\U_b'*U_f;
             [~,lambda] = eig(Psi);
-            est = sort(asin(angle(diag(lambda)) / pi)/pi)*180;
+            est = sort(asin(angle(diag(lambda')) / pi)/pi)*180;
             time = toc;
             error = sort(est) - obj.real_value';
         end
